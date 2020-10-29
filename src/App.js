@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import imagen from './cryptomonedas.png'
 import Formulario from './components/Formulario'
+import Cotizacion from './components/Cotizacion'
+import Spinner from './components/Spinner';
+import axios from 'axios';
+
 const Contenedor = styled.div`
     max-width: 900px;
     margin: 0 auto;
@@ -37,6 +41,42 @@ const Heading = styled.h1`
 `;
 
 function App() {
+
+  const [moneda, setMoneda] = useState('');
+  const [cripto, setCripto] = useState('');
+  const [cotizacion, setCotizacion] = useState({});
+  const [cargando, setCargando] = useState(false);
+
+  useEffect( () => {
+  
+    const cotizarCriptomoneda = async () => {
+      //evitar la primer ejecucion, si el valor es igual al inicial que no renderize
+    if(moneda === '') return;
+
+    // consultar la api para obtener la URL
+    const url= `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${cripto}&tsyms=${moneda}`;
+
+    const resultado = await axios.get(url);
+
+    //spinner
+    setCargando(true);
+
+    setTimeout( () => {
+
+      setCargando(false);
+      setCotizacion(resultado.data.DISPLAY[cripto][moneda]);
+    },2000);
+
+     
+    }
+
+    cotizarCriptomoneda();
+  },[moneda, cripto])
+
+
+  //mostrar spinner o cotizacion
+  const componente = (cargando) ? <Spinner/> : <Cotizacion cotizacion={cotizacion}/>
+
   return (
     <Contenedor>
       <div>
@@ -47,7 +87,11 @@ function App() {
       </div>
       <div>
           <Heading>Cotiza Criptomonedas</Heading>
-          <Formulario/>
+          <Formulario
+            setMoneda={setMoneda}
+            setCripto={setCripto}
+          />
+          {componente}
       </div>
       
     </Contenedor>
