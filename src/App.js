@@ -7,7 +7,7 @@ import Spinner from './components/Spinner';
 import axios from 'axios';
 
 const Contenedor = styled.div`
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     @media (min-width: 992px){
       display: grid;
@@ -22,18 +22,18 @@ const Imagen = styled.img`
 `;
 
 const Heading = styled.h1`
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Roboto', sans-serif;
   color: #FFF;
   text-align: left;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   margin-bottom: 50px;
   margin-top: 80px;
 
   /* Linea decorativa inferior */
   &::after{
     content: '';
-    width: 100px;
+    width: 120px;
     height: 6px;
     background-color: #66A2FE;
     display: block;

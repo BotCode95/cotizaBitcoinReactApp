@@ -4,11 +4,9 @@ import styled from '@emotion/styled'
 
 const Label = styled.label `
 
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
     color: #FFF;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 2.4rem;
     margin-top: 2rem;
     display: block;
 `;

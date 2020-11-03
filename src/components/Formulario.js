@@ -32,10 +32,10 @@ const Formulario = ({setMoneda,setCripto}) => {
 
     const MONEDAS = [ 
         { codigo: 'USD', nombre: 'Dolar EEUU'},
-        { codigo: 'ARS', nombre:'Peso Argentino'},
+        { codigo: 'ARS', nombre:'Pesos Argentinos'},
         { codigo: 'EUR', nombre:'Euro'},
         { codigo: 'GBP', nombre:'Libra Esterlina'},
-        { codigo: 'MXN', nombre:'Peso Mexicano'},
+        { codigo: 'MXN', nombre:'Pesos Mexicanos'},
     ]
     //useMoneda
     const [moneda, SelectMonedas] = useMoneda('Selecciona una moneda', '', MONEDAS);
@@ -82,6 +82,7 @@ const Formulario = ({setMoneda,setCripto}) => {
                 value="Calcular"
             />
         </form>
+        
     );
 }
  

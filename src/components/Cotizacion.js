@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const Resultado = styled.div`
     color:#FFF;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    font-family: 'Roboto', sans-serif;
 `;
 
 const Info = styled.p`
